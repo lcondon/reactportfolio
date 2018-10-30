@@ -7,12 +7,6 @@ import Contact from './components/Contact';
 import Portfolio from './components/Portfolio';
 import About from './components/About';
 import Modals from './components/Modals';
-import * as Scroll from 'react-scroll';
-
-let Element = Scroll.Element;
-var scroller = Scroll.scroller;
-var scroll = Scroll.animateScroll;
-let Link = Scroll.Link;
 
 class App extends Component {
   constructor() {
@@ -88,18 +82,8 @@ class App extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  componentWillUpdate() {
-    this.containerLine.onscroll = () => {
-      console.log('yes');
-    };
-  }
-
-  getApplicationNode = () => {
-    return document.getElementById('root');
-  };
-
   handleScroll = () => {
-    if (window.pageYOffset > 100) {
+    if (window.pageYOffset > 100 || this.state.modalIsOpen) {
       this.setState({ NavBarShrink: true });
     } else {
       this.setState({ NavBarShrink: false });
@@ -121,26 +105,12 @@ class App extends Component {
     this.setState({ modalIsOpen: false });
   }
 
-  linkClick = (ev, element) => {
-    ev.preventDefault();
-    scroll.scrollTo(element);
-  };
-
-  scrollToBottom = element => {
-    scroller.scrollTo(element, {
-      duration: 1500,
-      smooth: true,
-      containerId: 'portfolio',
-      offset: 50 // Scrolls to element + 50 pixels down the page
-    });
-  };
-
   render() {
     return (
       <React.Fragment>
         <div className="App" ref={el => (this.containerLine = el)}>
-          <NavBar shrink={this.state.NavBarShrink} scrollTo={this.linkClick} />
-          <MastHead scrollTo={this.scrollToElement} />
+          <NavBar shrink={this.state.NavBarShrink} />
+          <MastHead />
           <Portfolio
             projects={this.state.projects}
             openModal={this.openModal}
