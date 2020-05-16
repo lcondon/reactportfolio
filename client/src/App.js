@@ -18,6 +18,14 @@ class App extends Component {
       currentProject: '',
       projects: [
         {
+          title: 'Wedding App',
+          subtitle: 'Upload Photos',
+          imageLink: './images/portfolio/worldMap.jpg',
+          description: 'This app was created for my brother\'s wedding to share photos throughout the night. React is used for the front-end and Firebase Realtime Database and Storage were used to store uploaded images on the back-end.',
+          liveSite: 'https://condonsatchellwedding.com/',
+          gitRepo: 'https://github.com/lcondon/wedding-photos'
+        },
+        {
           title: 'Project 3',
           subtitle: 'riseUP',
           imageLink: './images/portfolio/riseup.png',
@@ -65,15 +73,6 @@ class App extends Component {
               and restaurants. Built with Materialize CSS, Algolia Places, and several different opensource API's.`,
           liveSite: 'https://lcondon.github.io/project1/',
           gitRepo: 'https://github.com/lcondon/project1/'
-        },
-        {
-          title: 'MySQL / Sequelize',
-          subtitle: 'Friend Finder',
-          imageLink: './images/portfolio/friendFinder.png',
-          description: `Web application that matches users with their most compatible new friend usings results from a
-              survey. Deployed on Heroku. Sequelize ORM used for database manipulation.`,
-          liveSite: 'https://glacial-ridge-62062.herokuapp.com/',
-          gitRepo: 'https://github.com/lcondon/friendFinder/'
         }
       ]
     };
